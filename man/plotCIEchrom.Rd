@@ -4,8 +4,14 @@
 \alias{plotCIEchrom}
 \title{Draw the 1931 CIE chromaticity diagram}
 \usage{
-plotCIEchrom(gradient = NULL, colSpace = "sRGB", ex = 1, opts = c("D65",
-  "specLocus", "purples"), title = NULL, ...)
+plotCIEchrom(
+  gradient = NULL,
+  colSpace = "sRGB",
+  ex = 1,
+  opts = c("D65", "specLocus", "purples"),
+  title = NULL,
+  ...
+)
 }
 \arguments{
 \item{gradient}{Character: either \code{"sl"}, \code{NULL}, or a
@@ -71,7 +77,7 @@ plotCIEchrom(gradient = getGamutValues("SWOP"), opts = c("D65", "SWOP", "sRGB"))
 \references{
 For \code{opts = "Munsell"}
 the Munsell designation by wavelength are taken from Romney & Indow
-\url{pnas.org/cgi/doi/10.1073/pnas.162368999}
+\doi{10.1073/pnas.162368999}
 }
 \author{
 Bryan A. Hanson, DePauw University. \email{hanson@depauw.edu}
