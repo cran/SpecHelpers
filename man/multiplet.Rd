@@ -6,6 +6,7 @@
 \usage{
 multiplet(
   J = c(15, 12, 2),
+  I = 1/2,
   pw = 0.5,
   plot = TRUE,
   plotJtree = TRUE,
@@ -15,6 +16,9 @@ multiplet(
 }
 \arguments{
 \item{J}{Numeric. A vector giving the coupling constants.}
+
+\item{I}{Numeric. Nuclear spin quantum number.  Half or whole integer.  Currently allowed
+values are 1/2, 1, 3/2, 5/2, 3 (note there are no stable isotopes with I = 2).}
 
 \item{pw}{Numeric.  Half the peak width at half-maximum (HWHM).  Passed to \code{\link[=makeSpec]{makeSpec()}},
 and then \code{\link[=lorentzCurve]{lorentzCurve()}} where it is the \code{gamma} argument.}
@@ -41,6 +45,7 @@ and optionally draw the splitting tree along with annotations of the J values
 and guides connecting the tree to the peak maxima.
 }
 \examples{
+# Examples of I = 1/2
 # Example 3.1 from Valiulin, a ddt.
 res <- multiplet(J = c(16.8, 10.1, 6.7, 6.7))
 # Example 3.2 from Valiulin, a tt.
@@ -50,6 +55,14 @@ res <- multiplet(J = c(12.7, 12.2, 10.0, 4.9))
 # Some other nice examples
 res <- multiplet(J = c(15, 12, 8, 7), pw = 0.25)
 res <- multiplet(J = c(15, 8, 5, 2))
+
+# Examples of I = 1
+res <- multiplet(J = 32, I = 1) # CDCl3 observe 13C -> 2H coupling
+res <- multiplet(J = c(20, 18), I = 1)
+
+# Examples of I = 3/2
+res <- multiplet(J = 1.13, I = 3 / 2, pw = 0.1) # NaBF4 observe 19F -> 11B coupling
+res <- multiplet(J = c(10, 7), I = 3 / 2)
 }
 \references{
 Roman A. Valiulin \emph{NMR Multiplet Interpretation}, 2nd Edition, de Gruyter, 2025.
